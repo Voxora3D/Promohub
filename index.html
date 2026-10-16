@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PromoHub — temukan dan promosikan website, game, aplikasi, AI tools, dan produk digital buatan kreator Indonesia.">
+  <title>PromoHub — Temukan proyek digital keren</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="PromoHub Beranda"><span class="brand-mark">P</span> Promo<span>Hub</span></a>
+    <nav class="desktop-nav" aria-label="Navigasi utama">
+      <a href="#jelajahi">Jelajahi</a><a href="#kategori">Kategori</a><a href="#tentang">Tentang</a>
+    </nav>
+    <button class="btn btn-primary header-cta" id="submitTop">＋ Promosikan Produk</button>
+    <button class="menu-toggle" id="menuToggle" aria-label="Buka navigasi">☰</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-badge"><span class="live-dot"></span> Direktori kreator digital Indonesia</div>
+      <h1>Proyek hebat layak<br><span>lebih dikenal.</span></h1>
+      <p class="hero-copy">Temukan website, game indie, aplikasi, dan alat digital buatan kreator. Punya proyek sendiri? Tampilkan secara gratis.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-large" href="#jelajahi">Jelajahi proyek <span>↗</span></a>
+        <button class="btn btn-outline btn-large" id="submitHero">＋ Kirim proyek</button>
+      </div>
+      <div class="hero-proof"><div class="avatar-stack"><span>W</span><span>G</span><span>A</span><span>✦</span></div><span>Tempat bertumbuhnya ide-ide baru</span></div>
+      <div class="hero-decoration decor-one">✳</div><div class="hero-decoration decor-two">✦</div>
+    </section>
+
+    <section class="search-section" id="jelajahi">
+      <div class="section-heading">
+        <div><p class="eyebrow">JELAJAHI KARYA</p><h2>Temukan sesuatu yang baru</h2></div>
+        <span class="result-count" id="resultCount">6 proyek</span>
+      </div>
+      <div class="search-row">
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Cari website, game, aplikasi..." aria-label="Cari proyek"></label>
+        <select id="sortSelect" aria-label="Urutkan proyek"><option value="featured">Pilihan</option><option value="az">Nama A–Z</option></select>
+      </div>
+      <div class="category-row" id="kategori" role="group" aria-label="Filter kategori">
+        <button class="chip active" data-category="Semua">✦ Semua</button>
+        <button class="chip" data-category="Website">🌐 Website</button>
+        <button class="chip" data-category="Game">🎮 Game</button>
+        <button class="chip" data-category="Aplikasi">📱 Aplikasi</button>
+        <button class="chip" data-category="AI Tools">✧ AI Tools</button>
+        <button class="chip" data-category="Produk Digital">◈ Produk Digital</button>
+      </div>
+      <div class="product-grid" id="productGrid" aria-live="polite"></div>
+      <div class="empty-state hidden" id="emptyState"><div>⌕</div><h3>Belum ada proyek yang cocok</h3><p>Coba kata kunci atau kategori lain.</p><button class="btn btn-outline" id="resetSearch">Hapus filter</button></div>
+      <div class="browse-footer"><span>Menemukan sesuatu yang menarik?</span><button class="text-link" id="submitBottom">Tambahkan proyekmu ↗</button></div>
+    </section>
+
+    <section class="submit-banner" id="tentang">
+      <div class="banner-spark">✳</div>
+      <div><p class="eyebrow light">PUNYA PROYEK DIGITAL?</p><h2>Jangan biarkan karyamu<br>tersembunyi.</h2><p>Bagikan proyekmu kepada orang-orang yang suka menemukan hal baru. Gratis untuk mulai.</p></div>
+      <button class="btn btn-light btn-large" id="submitBanner">Promosikan proyek ↗</button>
+    </section>
+
+    <section class="how-section">
+      <p class="eyebrow">SIMPLE BY DESIGN</p><h2>Mulai dalam tiga langkah</h2>
+      <div class="steps">
+        <article><div class="step-icon">✍</div><span class="step-number">01</span><h3>Kirim proyek</h3><p>Isi nama, kategori, deskripsi singkat, dan tautan proyekmu.</p></article>
+        <article><div class="step-icon">◈</div><span class="step-number">02</span><h3>Ditinjau</h3><p>Pastikan proyekmu punya informasi jelas dan tautan yang aman.</p></article>
+        <article><div class="step-icon">↗</div><span class="step-number">03</span><h3>Bagikan</h3><p>Setelah disetujui, orang bisa menemukan proyek dan mengunjungi situsmu.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><a class="brand" href="#"><span class="brand-mark">P</span> Promo<span>Hub</span></a><p>Temukan. Promosikan. Berkembang.</p><span>© <span id="year"></span> PromoHub · Dibuat untuk kreator digital.</span></footer>
+
+  <dialog id="submitDialog" class="submit-dialog">
+    <form id="submitForm" method="dialog">
+      <div class="dialog-heading"><div><p class="eyebrow">PROMOSIKAN KARYA</p><h2>Kirim proyekmu</h2></div><button type="button" class="close-btn" id="closeDialog" aria-label="Tutup">×</button></div>
+      <p class="dialog-intro">Isi detail di bawah. Versi demo ini menyiapkan pesan pengajuan untuk disalin; belum mengirim data ke server.</p>
+      <label>Nama proyek<input name="name" required maxlength="60" placeholder="Contoh: Pixel Quest"></label>
+      <label>Kategori<select name="category" required><option value="">Pilih kategori</option><option>Website</option><option>Game</option><option>Aplikasi</option><option>AI Tools</option><option>Produk Digital</option></select></label>
+      <label>Deskripsi singkat<textarea name="description" required maxlength="180" rows="3" placeholder="Apa yang membuat proyekmu berguna?"></textarea><small>Maksimal 180 karakter.</small></label>
+      <label>Link proyek<input name="url" type="url" required placeholder="https://contoh.com"></label>
+      <label>Kontak kreator (opsional)<input name="contact" maxlength="80" placeholder="Email atau username publik"></label>
+      <div class="form-error hidden" id="formError"></div>
+      <button class="btn btn-primary submit-full" type="submit">Siapkan pengajuan ↗</button>
+      <p class="privacy-note">Jangan masukkan kata sandi atau informasi pribadi sensitif. Tautan akan ditinjau sebelum dipublikasikan.</p>
+    </form>
+  </dialog>
+
+  <dialog id="previewDialog" class="preview-dialog">
+    <button type="button" class="close-btn preview-close" id="closePreview" aria-label="Tutup">×</button>
+    <div id="previewContent"></div>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
